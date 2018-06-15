@@ -93,7 +93,6 @@ var app = {
           firstPoint: {x, y},
           canvasSize: self.canvasSize
         });
-        self.lines.push(drawPoints);
       } else if(self.mode === 'SELECT') {
         self.selectLine(x, y);
       } else if (self.mode === 'INPUT'){
@@ -145,6 +144,7 @@ var app = {
           x: e.offsetX,
           y: e.offsetY
         });
+        self.lines.push(drawPoints);
         self.render();
       }
     })
@@ -195,6 +195,8 @@ var app = {
       let minSquareDistance, closestIndex;
       self.lines.forEach(function(line, index) {
         const squareDistance = line.squareDistanceFrom(x, y);
+        if (squareDistance == null)
+          return;
         // SELECTOR_DISTANCE is a constant defined at the top level of our application
         // to allow for easy modification of the click "sensitivity"
         if(squareDistance <= self.SELECTOR_DISTANCE &&
