@@ -195,6 +195,8 @@ var app = {
       let minSquareDistance, closestIndex;
       self.lines.forEach(function(line, index) {
         const squareDistance = line.squareDistanceFrom(x, y);
+        if (squareDistance == null)
+          return;
         // SELECTOR_DISTANCE is a constant defined at the top level of our application
         // to allow for easy modification of the click "sensitivity"
         if(squareDistance <= self.SELECTOR_DISTANCE &&
