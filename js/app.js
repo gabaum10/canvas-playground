@@ -1,15 +1,19 @@
 var app = {
+  // App attributes
   initDone: false,
   mode: 'INPUT',
   lines: [],
   firstPoint: null,
-  SELECTOR_DISTANCE: 10,
+  SELECTOR_DISTANCE: 10, // controls how sensitive we want the selector to be
   canvas: document.getElementById('canvas'),
   canvasSize: {
     width: self.canvas.width,
     height: self.canvas.height
   },
 
+  /**
+   * Initialize the app
+   */
   init: function() {
     var self = this;
     if(self.initDone)
