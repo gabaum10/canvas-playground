@@ -93,7 +93,6 @@ var app = {
           firstPoint: {x, y},
           canvasSize: self.canvasSize
         });
-        self.lines.push(drawPoints);
       } else if(self.mode === 'SELECT') {
         self.selectLine(x, y);
       } else if (self.mode === 'INPUT'){
@@ -145,6 +144,7 @@ var app = {
           x: e.offsetX,
           y: e.offsetY
         });
+        self.lines.push(drawPoints);
         self.render();
       }
     })
